@@ -9,9 +9,10 @@ pub struct DiskManager {
     next_page_id: u64,
 }
 
+#[derive(Eq, Hash, PartialEq, Copy, Clone, Debug)]
 pub struct PageId(pub u64);
 
-const PAGE_SIZE: usize = 4096;
+pub const PAGE_SIZE: usize = 4096;
 
 impl DiskManager {
     pub fn new(heap_file: File) -> Result<Self> {
